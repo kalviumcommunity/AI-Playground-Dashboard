@@ -1,0 +1,35 @@
+﻿“Hi! In this part of the AI Playground Dashboard demo, I’ll explain and show Zero-Shot Prompting using the Gemini API.”
+________________
+
+
+ “Zero-Shot Prompting means giving the AI a task or question without any prior examples.
+The model has to rely purely on its pre-trained knowledge to generate an answer.
+In our dashboard, Zero-Shot is the default mode — we just send the user’s prompt directly to the API without adding examples.”
+________________
+
+
+ “In the code, when the mode is set to zero, the final prompt is simply:
+let finalPrompt = userPrompt;
+
+
+This gets wrapped in the API request body and sent straight to Gemini.
+So what you type is exactly what the model sees — nothing else added.”
+________________
+
+
+type: ‘Translate this English sentence into French: I love learning AI.’
+The model directly answers: ‘J’aime apprendre l’IA.’
+ That’s Zero-Shot — no examples, just my prompt and the AI’s response.”
+________________
+
+
+ “So, Zero-Shot Prompting is the simplest form of prompt engineering — fast, clean, and great for straightforward tasks.
+Next, you can try one-shot and multi-shot modes to see how examples change the AI’s behavior.”
+________________
+Example Prompt for Zero-Shot
+User Prompt in the dashboard:
+Translate this English sentence into French: I love learning AI.
+
+
+AI Response (expected):
+J’aime apprendre l’IA.
