@@ -49,7 +49,8 @@ AI-Playground-Dashboard/
 ├─ index.html        # Main interface
 ├─ app.js            # Handles API calls and UI interactions
 ├─ style.css         # Optional CSS file
-└─ README.md         # Project documentation
+├─ README.md         # Project documentation
+└─ assets/           # Images, icons, or demo files
 ```
 
 ---
