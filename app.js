@@ -6,7 +6,7 @@ async function sendPrompt() {
   const userPrompt = document.getElementById("userPrompt").value;
   const mode = document.getElementById("mode").value;
   const temperature = parseFloat(document.getElementById("temperature").value);
-  const topP = parseFloat(document.getElementById("topP").value);
+  const topP = parseFloat(document.getElementById("topP").value) || 0.9;
   const topK = parseInt(document.getElementById("topK").value);
 
   let finalPrompt = userPrompt;
@@ -19,14 +19,14 @@ async function sendPrompt() {
   }
 
   const body = {
-    contents: [{ role: "user", parts: [{ text: finalPrompt }]}],
-    generationConfig: {
-      temperature: temperature,
-      topP: topP,
-      topK: topK,
-      maxOutputTokens: 500
-    }
-  };
+  contents: [{ role: "user", parts: [{ text: finalPrompt }]}],
+  generationConfig: {
+    temperature: temperature,
+    topP: topP, // Nucleus sampling: keeps only most likely tokens whose cumulative probability ≥ p
+    topK: topK,
+    maxOutputTokens: 500
+  }
+};
 
   /* code already passes temperature:
 

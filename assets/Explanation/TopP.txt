@@ -1,0 +1,34 @@
+﻿“Hi again! In this video, let’s explore Top-P, also called nucleus sampling, and see how it works in our AI Playground Dashboard.”
+________________
+
+
+“Top-P controls how many words the AI considers at each step.
+* Imagine the AI has a list of possible next words with probabilities.
+
+* With Top-P = 0.9, it keeps the smallest set of words whose total probability adds up to 90%.
+
+* That means it focuses only on the most likely words, ignoring the unlikely ones.
+
+Low Top-P (like 0.3) = only very safe tokens are considered → predictable, less creative.
+High Top-P (like 0.9 or 1.0) = more variety, more creative options.”
+________________
+
+
+“In our Playground, let’s test it.
+Prompt: Write a sentence about the moon.
+   * With Top-P = 0.3, the output is: The moon is round and bright in the night sky.
+
+   * With Top-P = 0.9, the output is: The moon drifts like a silver lantern, pulling the tides with quiet power.
+
+Both are correct, but higher Top-P gave us more richness and variety.”
+________________
+
+
+“So Top-P is about probability cutoff — it tells the AI whether to play safe or explore more options.
+In our dashboard, you can experiment with the slider and immediately see how your outputs change.”
+Top-P
+	Example Output
+	0.3
+	“The moon is round and bright.”
+	0.9
+	“The moon drifts like a silver lantern over the tides.”
