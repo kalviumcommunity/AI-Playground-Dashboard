@@ -1,0 +1,14 @@
+﻿“Hey everyone! This explains what Temperature means in Large Language Models, and how it works in our AI Playground Dashboard.”
+“Temperature controls the creativity vs. determinism of the model.
+* At low temperatures (like 0.1), the model plays safe. It gives predictable, factual, repeatable answers.
+
+* At higher temperatures (like 0.9 or 1), the model takes risks. It generates more creative, surprising, even poetic responses.
+It’s like telling the AI: Do you want to be a scientist or a poet? Lower temp → scientist. Higher temp → poet.”
+
+ “In our AI Playground, we can tune this slider. For example:
+   * With Temperature = 0.1, I ask: Describe the ocean. The answer is simple: The ocean is large and full of water.
+
+   * With Temperature = 1.0, I get: The ocean whispers stories, painting silver dreams on every wave.
+ See the difference? Same prompt, but temperature changes the style completely.”
+
+ “So in short, temperature controls how creative the AI gets. Our dashboard lets you explore this interactively. Try different values, and see how your AI transforms from logical to imaginative!”

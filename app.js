@@ -28,6 +28,34 @@ async function sendPrompt() {
     }
   };
 
+  /* code already passes temperature:
+
+generationConfig: {
+  temperature: temperature,
+  topP: topP,
+  topK: topK,
+  maxOutputTokens: 500
+}
+
+Updated snippet (app.js)
+const temperature = parseFloat(document.getElementById("temperature").value) || 0.7;
+
+const body = {
+  contents: [{ role: "user", parts: [{ text: finalPrompt }]}],
+  generationConfig: {
+    temperature: temperature, // Controls randomness / creativity
+    topP: topP,
+    topK: topK,
+    maxOutputTokens: 500
+  }
+};
+
+
+We’ve now:
+
+Defaulted temperature to 0.7 if nothing is entered.*/
+
+
   try {
     const res = await fetch(`https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${API_KEY}`, {
       method: "POST",

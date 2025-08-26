@@ -1,0 +1,41 @@
+﻿“Hi again! Now let’s look at One-Shot Prompting in the AI Playground Dashboard.”
+ “One-Shot Prompting means giving the AI a single example before asking your actual question.
+The example acts like a mini-training sample, showing the model the format or style we want in the answer.
+In our dashboard, when you select One-Shot, we automatically prepend an example to your prompt.”
+________________
+
+
+ “In the code, if mode is set to one, we do this:
+if (mode === \"one\") {
+  finalPrompt = `Example: Q: What is the capital of France? A: Paris.\n\nNow, Q: ${userPrompt}`;
+}
+
+
+So the model first sees an example Q&A, and then your actual question.”
+________________
+
+System Prompt: ‘You are a helpful assistant.’
+ User Prompt: ‘What is the capital of Japan?’
+ Mode: One-Shot.
+The model answers: ‘Tokyo.’
+ It followed the same Q&A style we showed in the example.”
+________________
+
+
+ “So One-Shot is useful when you want the AI to copy a certain style or format.
+It’s a simple but powerful way to steer responses more reliably than Zero-Shot.”
+________________
+ Example Prompt for One-Shot
+User Prompt in dashboard:
+What is the capital of Japan?
+
+
+Final Prompt sent to API:
+Example: Q: What is the capital of France? A: Paris.
+
+
+Now, Q: What is the capital of Japan?
+
+
+AI Response (expected):
+Tokyo
