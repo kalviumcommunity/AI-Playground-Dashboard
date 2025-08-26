@@ -1,0 +1,48 @@
+﻿“Hi! Now let’s look at Multi-Shot Prompting in the AI Playground Dashboard.”
+________________
+
+
+ “Multi-Shot Prompting means giving the AI multiple examples before asking the real question.
+This helps the model pick up a stronger pattern, making its answers more consistent and reliable.
+In our dashboard, when you choose Multi-Shot, we provide two or more sample Q&A pairs before the actual prompt.”
+
+
+ “In the code, it looks like this:
+if (mode === \"multi\") {
+  finalPrompt = `Example 1: Q: What is 2+2? A: 4.
+Example 2: Q: What is the capital of Japan? A: Tokyo.
+
+
+Now, Q: ${userPrompt}`;
+}
+
+
+So the AI sees multiple examples, then your question.”
+________________
+
+System Prompt: ‘You are a helpful assistant.’
+ User Prompt: ‘What is the capital of Germany?’
+ Mode: Multi-Shot. [Click Send]
+The model responds: ‘Berlin.’
+ And notice — it followed the exact same Q&A style shown in the examples.”
+________________
+
+
+[Wrap Up – 10–15 sec]
+ “So Multi-Shot is best when you want maximum consistency or want the AI to follow a specific format.
+Compared to Zero-Shot and One-Shot, it’s more reliable when examples matter.”
+________________
+Example Prompt for Multi-Shot
+User Prompt in dashboard:
+What is the capital of Germany?
+
+
+Final Prompt sent to API:
+Example 1: Q: What is 2+2? A: 4.
+Example 2: Q: What is the capital of Japan? A: Tokyo.
+
+
+Now, Q: What is the capital of Germany?
+
+
+AI Response (expected):Berlin
