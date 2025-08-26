@@ -1,0 +1,31 @@
+﻿we’ll explain Top-K sampling, another parameter you can tune in our AI Playground Dashboard.”
+________________
+
+
+“Top-K controls how many possible words the AI is allowed to consider at each step.
+* If K=1, the model always picks the single most likely next word → very deterministic.
+
+* If K=50, the model picks from the 50 most likely words → more creativity.
+
+Think of it like giving the AI a shortlist of words:
+   * Small K = strict shortlist.
+
+   * Large K = big shortlist.”
+
+“Let’s try the same prompt: Write a sentence about the ocean.
+      * With Top-K = 1, output might be: The ocean is vast and blue.
+
+      * With Top-K = 50, output might be: The ocean whispers with rolling waves, carrying secrets across the horizon.
+
+“So Top-K is about choice list size.
+It’s a way to balance between safe answers and creative variety.
+Try different values in our dashboard and watch how your outputs evolve!”
+________________
+
+
+Top-K
+	Example Output
+	1
+	“The ocean is vast and blue.”
+	50
+	“The ocean whispers with rolling waves across the horizon.”
