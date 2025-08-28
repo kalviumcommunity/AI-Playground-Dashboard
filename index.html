@@ -87,6 +87,21 @@
       Tokens: 0 (approx.)
     </div>
 
+    <hr>
+    <h2>📚 Embeddings & Vector Search</h2>
+
+    <label>Add Note</label>
+    <textarea id="noteInput" placeholder="Type a note to store..."></textarea>
+    <button onclick="addNote()">Add to DB</button>
+    <div id="vectorStatus"></div>
+
+    <label>Search Notes</label>
+    <input type="text" id="searchInput" placeholder="Type a search query...">
+    <button onclick="searchNotes()">Search</button>
+
+    <pre id="searchResults" style="background:#f9f9f9; padding:10px; border-radius:8px; min-height:50px;"></pre>
+
+
   </div>
 
   <script src="app.js"></script>

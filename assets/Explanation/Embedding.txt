@@ -1,0 +1,39 @@
+﻿embeddings?
+
+* They are numerical vector representations of text.
+
+* Each word/sentence/document is converted into a high-dimensional vector (array of numbers).
+
+* Example: "cat" and "dog" will have vectors close together, but "cat" and "car" will be far apart.
+
+Why are embeddings important?
+
+   * They allow semantic similarity search (find meaning, not just exact words).
+
+   * Power features like:
+
+      * Semantic search (your demo).
+
+      * Clustering/grouping of texts.
+
+      * Recommendation systems.
+
+      * Retrieval-Augmented Generation (RAG).
+
+How are they computed?
+
+         * LLMs are trained on huge corpora.
+
+         * During training, words and contexts are mapped into dense vector spaces.
+
+         * The embedding API just exposes this learned representation.
+
+Practical applications (show live in your project):
+
+            * Add a note: "Paris is the capital of France."
+
+            * Add another note: "Tokyo is the capital of Japan."
+
+            * Search "Where is Japan’s capital?" → Your embedding search will return Tokyo.
+
+            * Explain: “Even though the words are different (‘Where’ vs ‘capital’), embeddings capture semantic meaning, so it still finds the right note.”
