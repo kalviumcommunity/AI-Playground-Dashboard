@@ -1,0 +1,32 @@
+﻿Structured Output option to the playground, enabling developers to force responses in a valid JSON format. This complements the existing token counter, tokenization, and stop sequences features.
+Details:
+* Added a checkbox (#jsonMode) in the UI to toggle JSON output.
+
+When enabled, the system prompt enforces a JSON structure:
+
+{
+  "answer": "...",
+  "explanation": "..."
+}
+   *    * Existing features (stop sequences, token counting, tokenization) remain intact.
+
+   * Updated app.js to modify the prompt dynamically if JSON mode is selected.
+
+Why this matters:
+ Structured output is critical when integrating LLMs into apps, dashboards, or automation pipelines. JSON allows easy downstream parsing and guarantees predictable schema alignment.
+________________
+
+ “LLMs are powerful, but they often return free-form text. What if you need clean, machine-readable data? That’s where Structured Output comes in.”
+ “Structured output lets us tell the model: don’t just write an essay — stick to valid JSON with a fixed schema. 
+      1. Show the new ‘Force JSON Output’ checkbox.
+
+Type a prompt: What is the capital of France? Explain briefly.
+With JSON mode enabled, the response will look like:
+
+{
+  "answer": "Paris",
+  "explanation": "Paris is the capital of France, located along the Seine River."
+}
+         2. Show token counter + stop sequences still working.
+
+ “Now our playground can return responses in predictable formats — perfect for APIs, chatbots, or structured pipelines. In real projects, this avoids messy parsing and keeps AI output reliable.”

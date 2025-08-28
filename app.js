@@ -41,6 +41,9 @@ async function sendPrompt() {
     ? stopSeqInput.split(",").map(s => s.trim())
     : [];
 
+  // JSON output toggle
+  const jsonMode = document.getElementById("jsonMode")?.checked;
+
   let finalPrompt = userPrompt;
 
   // Handle one-shot / multi-shot examples
@@ -48,6 +51,11 @@ async function sendPrompt() {
     finalPrompt = `Example: Q: What is the capital of France? A: Paris.\n\nNow, Q: ${userPrompt}`;
   } else if (mode === "multi") {
     finalPrompt = `Example 1: Q: What is 2+2? A: 4.\nExample 2: Q: What is the capital of Japan? A: Tokyo.\n\nNow, Q: ${userPrompt}`;
+  }
+
+  // Force JSON output mode
+  if (jsonMode) {
+    finalPrompt = `Respond ONLY in valid JSON format with the keys: "answer", "explanation".\n\nQuestion: ${userPrompt}`;
   }
 
   const body = {
