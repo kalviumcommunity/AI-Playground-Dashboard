@@ -1,0 +1,25 @@
+﻿“Every LLM works with tokens, not raw words. Tokens are chunks of text — sometimes whole words, sometimes just parts of words.”
+________________
+
+
+* “Think of tokens like Lego blocks of language.
+
+* Example: The word ‘unbelievable’ might be broken into 3 tokens: un, believe, able.
+
+* Short words like cat can be just 1 token.
+
+AI counts these tokens to measure input size and cost.”
+________________
+
+
+   * “Here in our AI Playground, after every response, we log how many tokens were used.
+
+   * Input prompt length and output response length both count.
+
+   * You’ll see: Input: X, Output: Y, Total: Z (approx).”
+
+________________
+
+
+“Tokens are the currency of AI models.
+Understanding them helps you optimize prompts, reduce costs, and control responses.”

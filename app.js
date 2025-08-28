@@ -1,17 +1,42 @@
-const API_KEY="YOUR_GEMINI_API_KEY"; // put your key here
-const MODEL = "gemini-2.5-flash"; // lightweight, fast model
+const API_KEY = "YOUR_GEMINI_API_KEY"; // replace with your key
+const MODEL = "gemini-2.5-flash"; // fast model
 
+// Token Estimation
+function estimateTokens(text) {
+  return Math.ceil(text.length / 4); // approx: 1 token ≈ 4 chars
+}
+
+function tokenizeText(text) {
+  // simple tokenization: split on spaces/punctuation
+  return text.split(/(\s+|[,.!?;:])/).filter(Boolean);
+}
+
+function updateTokenInfo(prompt, response) {
+  const inputTokens = estimateTokens(prompt);
+  const outputTokens = estimateTokens(response);
+  const total = inputTokens + outputTokens;
+
+  const tokenList = tokenizeText(response).join(" | ");
+
+  document.getElementById("tokenInfo").innerHTML = `
+    <b>Input Tokens:</b> ${inputTokens}, 
+    <b>Output Tokens:</b> ${outputTokens}, 
+    <b>Total:</b> ${total} (approx.)<br>
+    <b>Tokenized Output:</b> ${tokenList}
+  `;
+}
+
+// Main Send Function 
 async function sendPrompt() {
   const systemPrompt = document.getElementById("systemPrompt").value;
   const userPrompt = document.getElementById("userPrompt").value;
   const mode = document.getElementById("mode").value;
   const temperature = parseFloat(document.getElementById("temperature").value);
-  const topP = parseFloat(document.getElementById("topP").value) || 0.9;
-  const topK = parseInt(document.getElementById("topK").value) || 40;
+  const topP = parseFloat(document.getElementById("topP").value);
+  const topK = parseInt(document.getElementById("topK").value);
 
   let finalPrompt = userPrompt;
 
-  // Handle one-shot / multi-shot examples
   if (mode === "one") {
     finalPrompt = `Example: Q: What is the capital of France? A: Paris.\n\nNow, Q: ${userPrompt}`;
   } else if (mode === "multi") {
@@ -19,58 +44,41 @@ async function sendPrompt() {
   }
 
   const body = {
-  contents: [{ role: "user", parts: [{ text: finalPrompt }]}],
-  generationConfig: {
-    temperature: temperature,
-    topP: topP, // Nucleus sampling: keeps only most likely tokens whose cumulative probability ≥ p
-    topK: topK, // Only consider the top K most likely tokens at each step
-    maxOutputTokens: 500
-  }
-};
-
-  /* code already passes temperature:
-
-generationConfig: {
-  temperature: temperature,
-  topP: topP,
-  topK: topK,
-  maxOutputTokens: 500
-}
-
-Updated snippet (app.js)
-const temperature = parseFloat(document.getElementById("temperature").value) || 0.7;
-
-const body = {
-  contents: [{ role: "user", parts: [{ text: finalPrompt }]}],
-  generationConfig: {
-    temperature: temperature, // Controls randomness / creativity
-    topP: topP,
-    topK: topK,
-    maxOutputTokens: 500
-  }
-};
-
-
-We’ve now:
-
-Defaulted temperature to 0.7 if nothing is entered.*/
-
+    contents: [{ role: "user", parts: [{ text: finalPrompt }]}],
+    generationConfig: {
+      temperature,
+      topP,
+      topK,
+      maxOutputTokens: 500
+    }
+  };
 
   try {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${API_KEY}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body)
-    });
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${API_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      }
+    );
 
     const data = await res.json();
-    document.getElementById("output").textContent =
+    const responseText =
       data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response.";
+
+    document.getElementById("output").textContent = responseText;
+
+    // update token info
+    updateTokenInfo(finalPrompt, responseText);
+
   } catch (err) {
     document.getElementById("output").textContent = "Error: " + err.message;
   }
 }
 
+// --- Clear Output ---
 function clearOutput() {
   document.getElementById("output").textContent = "";
+  document.getElementById("tokenInfo").textContent = "Tokens: 0 (approx.)";
 }
