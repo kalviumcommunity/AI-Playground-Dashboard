@@ -1,0 +1,18 @@
+﻿“Hi everyone, in this demo I’ll walk you through how we integrated a vector database into our AI Playground project and explain why it matters for Large Language Models.”
+________________
+
+
+* “When we talk about vectors in LLMs, we’re referring to embeddings—high-dimensional numerical representations of text. For example, the sentence ‘I love apples’ becomes a list of numbers that capture its meaning.”
+
+* “A vector database stores these embeddings, allowing us to compare them quickly using similarity metrics like cosine similarity. Instead of just keyword search, we can now find semantically related content. For example, if you search ‘fruit I enjoy,’ it will still surface notes about apples.”
+
+________________
+
+
+   * “In our project, whenever you save a note, we generate its embedding with the Gemini API and store it in a vector database (like Pinecone, Weaviate, or a local store).”
+
+   * “When you search, your query is also embedded into a vector. The database finds the closest vectors and returns the most relevant notes based on meaning, not exact words.
+      1. Save a note (embedding stored in vector DB).
+      2. Search with a related but not identical phrase
+      3. Point out how the correct note still comes up.
+“This is the power of vectors and vector databases in LLMs—they let us move from keyword search to semantic search. We’ve committed the changes and submitted a pull request on GitHub. Thanks for watching!”
