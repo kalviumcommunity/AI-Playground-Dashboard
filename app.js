@@ -3,7 +3,7 @@ const MODEL = "gemini-2.5-flash"; // for chat
 const EMBEDDING_MODEL = "embedding-001"; // for embeddings
 
 // In-memory vector DB
-let vectorDB = [];
+let vectorDB = []; // 
 
 // --- Token Estimation (rough) ---
 function estimateTokens(text) {
