@@ -72,6 +72,10 @@
     <label>Top K</label>
     <input type="number" id="topK" step="1" min="1" max="50" value="40">
 
+    <label>Stop Sequences (comma-separated)</label>
+    <input type="text" id="stopSeq" placeholder="e.g., ..., END">
+
+
     <button onclick="sendPrompt()">Send</button>
     <button onclick="clearOutput()">Clear</button>
 

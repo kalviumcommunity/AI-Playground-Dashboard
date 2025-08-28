@@ -1,0 +1,24 @@
+﻿Stop Sequences in LLMs
+“Sometimes, you don’t want your AI to ramble on forever. That’s where Stop Sequences come in.”
+________________
+
+
+* “A Stop Sequence is like a brake signal.
+
+* When the model generates a specific word or phrase, it immediately stops.
+
+* Example: If you set END as a stop sequence, as soon as the model outputs END, it halts.”
+
+________________
+
+
+   * “In our Playground, I’ll type a question and set END as the stop sequence.
+
+   * Watch how the output immediately cuts off when it reaches that trigger.
+
+   * You can also stack multiple stop sequences by separating them with commas.”
+
+________________
+
+
+“Stop sequences give you control — they’re great for structured outputs, templates, or making sure the AI doesn’t overshoot.”
